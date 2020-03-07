@@ -14,5 +14,4 @@ private:
     std::unordered_map<const Expr*, double> m_result_map{};
 };
 
-double evaluate(const IntExpr&);
-double evaluate(const AddExpr&);
+double evaluate(const Expr&);

@@ -22,15 +22,8 @@ SimpleAst::use_add(const AddExpr& e) {
 }
 
 std::string
-ast(const IntExpr& e) {
+ast(const Expr& e) {
     auto eval = SimpleAst{};
-    eval.use_int(e);
-    return eval.result_of(e);
-}
-
-std::string
-ast(const AddExpr& e) {
-    auto eval = SimpleAst{};
-    eval.use_add(e);
+    e.use_me(eval);
     return eval.result_of(e);
 }

@@ -45,16 +45,9 @@ struct SimpleAstWithMinusExpr
 };
 
 std::string
-extend_ast(const MinusExpr& e) {
+extend_ast(const Expr& e) {
     auto eval = SimpleAstWithMinusExpr{};
-    eval.use_minus(e);
-    return eval.result_of(e);
-}
-
-std::string
-extend_ast(const AddExpr& e) {
-    auto eval = SimpleAstWithMinusExpr{};
-    eval.use_add(e);
+    e.use_me(eval);
     return eval.result_of(e);
 }
 

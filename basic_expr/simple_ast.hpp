@@ -15,5 +15,4 @@ protected:
     std::unordered_map<const Expr*, std::string> m_result_map{};
 };
 
-std::string ast(const IntExpr&);
-std::string ast(const AddExpr&);
+std::string ast(const Expr&);

@@ -21,15 +21,8 @@ SimpleEvaluator::use_add(const AddExpr& e) {
 }
 
 double
-evaluate(const IntExpr& e) {
+evaluate(const Expr& e) {
     auto eval = SimpleEvaluator{};
-    eval.use_int(e);
-    return eval.result_of(e);
-}
-
-double
-evaluate(const AddExpr& e) {
-    auto eval = SimpleEvaluator{};
-    eval.use_add(e);
+    e.use_me(eval);
     return eval.result_of(e);
 }
