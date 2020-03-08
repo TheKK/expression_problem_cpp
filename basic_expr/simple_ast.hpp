@@ -5,14 +5,10 @@
 
 #include "basic_expr.hpp"
 
-struct SimpleAst : virtual ExprVisitor {
-    std::string result_of(const Expr& e);
+std::string ast(const IntExpr&);
 
-    void use_int(const IntExpr& e) override;
-    void use_add(const AddExpr& e) override;
-
-protected:
-    std::unordered_map<const Expr*, std::string> m_result_map{};
-};
-
-std::string ast(const Expr&);
+template<typename LHS, typename RHS>
+std::string
+ast(const AddExpr<LHS, RHS>& e) {
+    return "(" + ast(e.lhs) + " + " + ast(e.rhs) + ")";
+}

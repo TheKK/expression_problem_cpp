@@ -8,7 +8,7 @@ int
 main() {
     const auto& forty_two = IntExpr{42};
     const auto& one = IntExpr{1};
-    const auto& add_them = AddExpr{forty_two, one};
+    const auto& add_them = MkAddExpr(forty_two, one);
 
     std::cout << "forty_two: " << evaluate(forty_two) << "\n";
     std::cout << "one: " << evaluate(one) << "\n";

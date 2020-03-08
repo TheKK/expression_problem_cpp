@@ -4,14 +4,10 @@
 
 #include "basic_expr.hpp"
 
-struct SimpleEvaluator : virtual ExprVisitor {
-    double result_of(const Expr& e);
+double evaluate(const IntExpr&);
 
-    void use_int(const IntExpr& e) override;
-    void use_add(const AddExpr& e) override;
-
-private:
-    std::unordered_map<const Expr*, double> m_result_map{};
-};
-
-double evaluate(const Expr&);
+template<typename LHS, typename RHS>
+double
+evaluate(const AddExpr<LHS, RHS>& e) {
+    return evaluate(e.lhs) + evaluate(e.rhs);
+}
